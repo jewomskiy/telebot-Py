@@ -17,10 +17,10 @@ class APIService:
         self.session = self.Auth()
         self.cars = self.GetCars()
         self.link = MyLink(
-            'a354387.mysql.mchost.ru',
-            'a354387_stax',
+            'login',
             'password',
-            'a354387_stax'
+            'password',
+            'password?'
         )
 
     def Auth(self):
@@ -32,7 +32,7 @@ class APIService:
         session.mount('https://', HTTPAdapter(max_retries=retries))
         session.mount('http://', HTTPAdapter(max_retries=retries))
 
-        answer = session.post('https://stax.mcdir.ru/engine/api/login.php', data={
+        answer = session.post('somelink', data={
             'login': self.login,
             'pass': self.password
         })
